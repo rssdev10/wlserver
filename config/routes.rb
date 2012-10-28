@@ -1,4 +1,14 @@
 Wlserver::Application.routes.draw do
+  
+  match ':filename.asp' => 'asp_parser#parse'
+  match ':filename.cgi' => 'cgi_hnd#run'
+                    
+  root :to => redirect("/index.asp")
+  
+  match 'nvram' => 'asp_parser#nvram_print'
+  
+  #get "asp_parser/parse"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
